@@ -72,3 +72,7 @@ vector<int> getFactorization()
     }
     return ret;
 }
+
+int main(){
+    return 0;
+}
