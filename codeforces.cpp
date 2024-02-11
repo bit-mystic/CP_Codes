@@ -2,8 +2,6 @@
 using namespace std;
 
 #define int long long int
-// #define fr(l,n) for(int x=l,y=n;x<=y;x++)
-// #define dec(x) << fixed << setprecision(x)
 
 int N = 1e12+7;
 int s = floor(sqrt(N));
@@ -18,12 +16,6 @@ void seive(){
 		}
 	}
 }
-// void tseive(){
-// 	for(int x=2;x<=s;x++){
-// 		if(isprime[x])
-// 			istprime[x*x]=true;
-// 	}
-// }
 
 signed main(){
 	// ios_base::sync_with_stdio(false);
@@ -31,7 +23,7 @@ signed main(){
 	seive();
 	// tseive();
 	int test_cases;
-	bool ans;
+	int ans;
 	cin >> test_cases;
 	while(test_cases--){
 		int number;

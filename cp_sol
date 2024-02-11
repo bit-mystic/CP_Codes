@@ -1,0 +1,17 @@
+#include "bits/stdc++.h"
+using namespace std;
+
+#define int long long int
+
+signed main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	int test_cases;
+	cin >> test_cases;
+	while(test_cases--){
+		int runs,balls,wickets,virat_score;
+		cin >> runs >> balls >> wickets >> virat_score;
+		
+	}
+	return 0;
+}
