@@ -2,40 +2,71 @@
 using namespace std;
 
 #define int long long int
+#define tc int tests;cin>>tests;while(tests--)
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define fr(start,end) for(int x=start;x<end;x++)
+#define rfr(end,start) for(int x=end;x>=start;x--)
+#define vi vector<int>
+#define print(variable) cout<<variable<<endl;
 
-int solve(vector<int>& tr,int n){
-	if(n<3) return 0;
-	map<int,int> ct,nos;
-	int ans=0;
-	for(int x=0;x<n;x++){
-		ct[tr[x]]++;
-		nos[tr[x]]=x+1;
+const int mod = 1e9+7;
+
+void printarr(vector<int>& arr){
+	int n=arr.size();
+	// cout<<n<<endl;
+	for(int i=0;i<n;i++){
+		cout<<arr[i]<<" ";
 	}
-	for(auto it:ct){
-		int co = it.second;
-		int nn = it.first;
-		if(co<2) continue;
-		ans+=(((co-1)*co)/2)*(nos[nn]-2);
-		ans-=(((co-2)*(co-1)*co)/3);
-	}
-	return ans;
+	cout<<endl;
+	return;
+}
+
+void printif(bool condition, vector<int>& arr){
+	if(condition==true) printarr(arr);
+	else cout<<"NO"<<endl;
+	return;
+}
+
+void printif(bool condition){
+	if(condition==true) cout<<"YES"<<endl;
+	else cout<<"NO"<<endl;
+	return;
+}
+
+istream& operator>>(istream& custom_cin,vector<int>& array){
+	int n=array.size();
+	for(int x=0;x<n;x++) cin>>array[x];
+	return custom_cin;
 }
 
 signed main(){
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
-	int test_cases;
-	cin >> test_cases;
-	while(test_cases--){
-		int n,m,x,y;
-		cin>>n;
-		vector<int> arr(n);
-		for(int x=0;x<n;x++){
-			cin >> arr[x];
+	tc{
+		int n,m;cin>>n; 
+		vi a(n),b(n);
+		for(int x=0;x<n;x++) cin>>a[x];
+		for(int x=0;x<n;x++) cin>>b[x];
+		map<int,int> mp1;
+		map<int,int> mp2;
+		set<int> s1,s2;
+		fr(0,n){
+			mp1[a[x]]++;
+			mp2[b[x]]++;
+			s1.insert(a[x]);
+			s2.insert(b[x]);
 		}
-		sort(arr.begin(),arr.end());
-		int ans = solve(arr,n);
-		cout << ans << endl;
+		bool ans=true;
+		fr(0,n){
+			int tf = a[x];
+			if(s2.find(tf)==s2.end()){
+				ans==false;
+				break;
+			}
+			else if(mp1[tf]!=mp2[tf]){
+				ans==false;
+				break;
+			}
+		}
+		printif(ans);
 	}
 	return 0;
 }
