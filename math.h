@@ -1,37 +1,20 @@
-#include "bits/stdc++.h"
-using namespace std;
-
-int modInverse(int A, int M)
-{
+int modInverse(int A, int M){
     int m0 = M;
     int y = 0, x = 1;
- 
     if (M == 1)
         return 0;
- 
     while (A > 1) {
-        // q is quotient
         int q = A / M;
         int t = M;
- 
-        // m is remainder now, process same as
-        // Euclid's algo
         M = A % M, A = t;
         t = y;
- 
-        // Update y and x
         y = x - q * y;
         x = t;
     }
- 
-    // Make x positive
     if (x < 0)
         x += m0;
- 
-    return x;
-}
-
-long long binpow(long long a, long long b, long long m) {
+    return x;}
+long long binpow(long long a, long long b, long long m){
     a %= m;
     long long res = 1;
     while (b > 0) {
@@ -40,13 +23,8 @@ long long binpow(long long a, long long b, long long m) {
         a = a * a % m;
         b >>= 1;
     }
-    return res;
-}
-
-int spf[MAXN];
-
-void sieve()
-{
+    return res;}
+void sieve(vector<int>& spf, int MAXN){
     spf[1] = 1;
     for (int i = 2; i < MAXN; i+=2){
         spf[i] = 2;
@@ -59,19 +37,27 @@ void sieve()
                 if (spf[j] == j)
                     spf[j] = i;
         }
-    }
-}
-
-vector<int> getFactorization()
-{
+    }}
+vector<int> getFactorization(vector<int>& spf, int number){
     vector<int> ret;
-    while (x != 1) {
-        ret.push_back(spf[x]);
-        x = x / spf[x];
+    while (number != 1) {
+        ret.push_back(spf[number]);
+        number = number / spf[number];
     }
-    return ret;
-}
-
-int main(){
-    return 0;
-}
+    return ret;}
+vector<int> sieve(int n){
+    vector<bool> prime(n+1,true);
+    prime[0] = false;
+    prime[1] = false;
+    int m = sqrt(n);
+    for (int p=2; p<=m; p++){
+        if (prime[p]){
+            for (int i=p*2; i<=n; i += p)
+            prime[i] = false;
+        }
+    }
+    vector<int> ans;
+    for (int i=0;i<n;i++)
+        if (prime[i])
+            ans.push_back(i);
+    return ans;}
