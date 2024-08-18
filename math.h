@@ -14,16 +14,6 @@ int modInverse(int A, int M){
     if (x < 0)
         x += m0;
     return x;}
-long long binpow(long long a, long long b, long long m){
-    a %= m;
-    long long res = 1;
-    while (b > 0) {
-        if (b & 1)
-            res = res * a % m;
-        a = a * a % m;
-        b >>= 1;
-    }
-    return res;}
 void sieve(vector<int>& spf, int MAXN){
     spf[1] = 1;
     for (int i = 2; i < MAXN; i+=2){
