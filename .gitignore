@@ -1,3 +1,7 @@
 *.exe
 *.in
 *.out
+*.out
+*.in
+__pycache__/temp.cpython-311.pyc
+inputf.in
