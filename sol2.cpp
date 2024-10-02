@@ -70,42 +70,6 @@ istream& operator>>(istream& custom_cin,vector<int>& array){
 	for(int x=0;x<n;x++) cin>>array[x];
 	return custom_cin;}
 signed main(){
-	int N=1e5+13;
-	vector<bool> ist(N,false);
-	int i=0,ptr=0;
-	while(i<N){
-		ist[i]=true;
-		ptr++;
-		i+=ptr;
-	}
-	string in;
-	string s; getline(cin, s);
-    int num = 0;
-    vector<int> v;
-    for(int i = 0; i < s.size(); ++i)
-        if(s[i] == ' ')
-            v.push_back(num), num = 0;
-        else
-            num = num*10 + (s[i]-'0');
-    if(num>0) v.push_back(num);
-    int n,k; cin>>n>>k;  
-    int mxi=*max_element(v.begin(),v.begin()+min(1LL*v.size(),n));
-    int tk=k,till;
-    for(int i=n;i<v.size();i++){
-    	if(v[i]>mxi){
-    		mxi=v[i];
-    		tk=k;
-    	}
-    	else{
-    		tk--;
-    	}
-    	if(tk==0) {
-    		till=i+1;
-    		break;
-    	}
-    }
-	print(mxi);
-	print(s);
-	printarr(v);
+	
 	return 0;
 } 

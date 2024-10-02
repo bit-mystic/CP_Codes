@@ -1,4 +1,4 @@
-#include "bits/stdc++.h"
+#include <bits/stdc++.h>
 using namespace std;
 #define int long long int
 #define tc int tests;cin>>tests;while(tests--)
@@ -55,6 +55,7 @@ istream& operator>>(istream& custom_cin,vector<int>& array){
 	return custom_cin;}
 signed main(){
 	fastio;
-	
+	tc{
+	}
 	return 0;
 }
