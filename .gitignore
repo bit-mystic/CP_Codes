@@ -5,3 +5,5 @@
 *.in
 __pycache__/temp.cpython-311.pyc
 inputf.in
+*.in
+*.out

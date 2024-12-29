@@ -1,3 +1,7 @@
+int inv(int a, int m){return a<=1?a:m-(m/a)*inv(m%a,m)%m;}
+int digit(int n){return floor(log10(n)+1);}
+int nCk(vector<int>& f,int n,int k,int m) {return f[n]*inv(f[k]*f[n - k]%m,m)%m;}
+
 void sieve(vector<int>& spf, int MAXN){
     spf[1] = 1;
     for (int i = 2; i < MAXN; i+=2){
@@ -32,6 +36,23 @@ vector<int> sieve(int n){
     }
     vector<int> ans;
     for (int i=0;i<n;i++)
+        if (prime[i])
+            ans.push_back(i);
+    return ans;}
+
+vector<int> sieve(int n){
+    vector<bool> prime(n+1,true);
+    prime[0] = false;
+    prime[1] = false;
+    int m = sqrt(n);
+    for (int p=2; p<=m; p++){
+        if (prime[p]){
+            for (int i=p*2; i<=n; i += p)
+            prime[i] = false;
+        }
+    }
+    vector<int> ans;
+    for (int i=5;i<=n;i++)
         if (prime[i])
             ans.push_back(i);
     return ans;}
