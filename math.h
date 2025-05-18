@@ -1,6 +1,16 @@
-int inv(int a, int m){return a<=1?a:m-(m/a)*inv(m%a,m)%m;}
-int digit(int n){return floor(log10(n)+1);}
-int nCk(vector<int>& f,int n,int k,int m) {return f[n]*inv(f[k]*f[n - k]%m,m)%m;}
+template <typename T>
+ll inv(ll a){return a<=1?a:mod-(mod/a)*inv(mod%a)%mod;}
+
+template <typename T>
+int digit(ll n){return floor(log10(n)+1);}
+
+template <typename T>
+ll nCk(vector<int>& f,ll n,ll k) {return f[n]*inv(f[k]*f[n - k]%mod)%mod;}
+
+template <typename T>
+ll cross_product(vector<T>& a, vector<T>& b, vector<T>& c) 
+    return (b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]);
+
 
 void sieve(vector<int>& spf, int MAXN){
     spf[1] = 1;
